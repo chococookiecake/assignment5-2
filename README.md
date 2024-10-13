@@ -1,12 +1,12 @@
 # assignment5-task2  
-##设计思路  
+## 设计思路  
   分为两个mapreduce任务  
   第一个任务的Mapper负责输出<单词，1>  
   第一个任务的Reducer负责输出<单词，出现次数>  
   第二个任务的Mapper负责输出<出现次数，单词>  
   第二个任务的Reducer负责输出<"<排名>：<单词>，<次数>",Null>  
 
-##程序运⾏结果  
+## 程序运⾏结果  
 1:s,76081  
 2:stocks,54702  
 3:q,48851  
@@ -109,11 +109,11 @@
 100:deal,4784  
 
 
-##WEB⻚⾯截图  
+## WEB⻚⾯截图  
 ![image](https://github.com/user-attachments/assets/374da235-9cfa-4b0a-bcb7-1bc645355695)  
 
 
-##性能、扩展性等⽅⾯存在的不⾜和可能的改进之处  
+## 性能、扩展性等⽅⾯存在的不⾜和可能的改进之处  
 1、首先，一个很大的不足，是我规定了第二个任务的reducer数量为1，那如果数据规模增大，单个reducer的工作量将会太大。由于不支持多个reducer的并行处理，在大规模数据下性能将会明显下降。而我之所以将reducer数量设为1的原因，是我不知道如果有多个reducer，该如何计算排名，我知道可以用TotalOrderPartitioner进行partition，保证每个reducer得到的词频是全局排好序的，可是写在前面的这个ranking值怎么计算呢，我没想明白。  
 2、另外还有一个很大的不足，是我没有用第二个任务的mapper先得到每个mapper内部的前100，再由多个mapper汇总，在reducer中得到前100. 之所以没有这样做的原因，是我觉得这样的话mapper内部也要进行排序，会不会对mapper的性能有很大影响。  
 3、还有一个很大的不足，是我没有使用SecondarySort之类的方法，对相同词频的单词进行排序。
