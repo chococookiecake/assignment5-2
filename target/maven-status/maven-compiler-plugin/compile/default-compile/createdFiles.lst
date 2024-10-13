@@ -1,8 +1,0 @@
-WordCountinHeadline$SortMapper.class
-WordCountinHeadline$SortReducer.class
-WordCountinHeadline$WordCountMapper.class
-WordCountinHeadline$WordCountReducer.class
-WordCountinHeadline$DescendingCountComparator.class
-WordCountinHeadline.class
-WordCountinHeadline$SkipFirstLineInputFormat.class
-WordCountinHeadline$SkipFirstLineInputFormat$SkipFirstLineRecordReader.class
