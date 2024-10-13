@@ -1,4 +1,4 @@
-# assignment5-2  
+# assignment5-task2  
 ##设计思路  
   分为两个mapreduce任务  
   第一个任务的Mapper负责输出<单词，1>  
